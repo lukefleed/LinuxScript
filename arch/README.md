@@ -31,7 +31,7 @@ I also use ZSH with a nice Dracula theme, the script installs everything that yo
 ```bash
 chsh $USER
 ```
-then type `/bin/zsh`. You may need to restart the shell or log in a new session to see the effects 
+then type `/bin/zsh`. You may need to restart the shell or log in a new session to see the effects. After this, copy to your `home` directory the files `.zshrc` and `.p10k.zsh`
 
 
 ## IMPORTANT!
