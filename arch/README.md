@@ -25,7 +25,15 @@ To run the scrip (in the same folder as before)
 ```bash
 sudo ./software.sh
 ```
+## ZSH
+I also use ZSH with a nice Dracula theme, the script installs everything that you need. To set ZSH as default shell 
+
+```bash
+chsh $USER
+```
+then type `/bin/zsh`. You may need to restart the shell or log in a new session to see the effects 
+
 
 ## IMPORTANT!
 
-You must read the script before running it. I strongly suggest you to fork (or just clone) the repo and make you own changes: adapt it to your own preferences. 
+You must read the script before running it. I strongly suggest you to fork (or just clone) the repo and make you own changes: adapt it to your own preferences.
