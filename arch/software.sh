@@ -58,6 +58,7 @@ PKGS=(
     'vim'                                   # Terminal Editor
     'zip'                                   # Zip compression program
     'zsh'                                   # ZSH shell
+    'oh-my-zsh-git'
     'zsh-syntax-highlighting'               # Tab completion for ZSH
     'zsh-autosuggestions'                   # Tab completion for ZSH
     'zsh-theme-powerlevel10k'               # Theme for zsh
