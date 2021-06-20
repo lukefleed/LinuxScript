@@ -25,13 +25,10 @@ PKGS=(
     'chrome-gnome-shell'
     'apt-transport-https'
     'htop'                                  # Process viewer
-    'neofetch'                              # Shows system info when you launch terminal
-    
-    
+    'neofetch'                              # Shows system info when you launch terminal   
     'openssh'                               # SSH connectivity tools
     'p7zip'                                 # 7z compression program
-    'rsync'                                 # Remote file sync utility
-         
+    'rsync'                                 # Remote file sync utility  
     'tlp'                                   # Advanced laptop power management
     'unrar'                                 # RAR compression program
     'unzip'                                 # Zip compression program
@@ -40,7 +37,6 @@ PKGS=(
     'vim'                                   # Terminal Editor
     'zip'                                   # Zip compression program
     'zsh'                                   # ZSH shell
-
     'zsh-syntax-highlighting'               # Tab completion for ZSH
     'zsh-autosuggestions'                   # Tab completion for ZSH
     'zsh-theme-powerlevel10k'               # Theme for zsh
