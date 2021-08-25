@@ -1,4 +1,4 @@
-# Pop!_OSco
+# Pop!_OS
 
 This script is for Ubuntu and all of its derivative (PopOS, Linux Mint ...). It is strongly inspired by the ArchMatic repo by Chris Titus, go check it out: https://github.com/ChrisTitusTech/ArchMatic
 
