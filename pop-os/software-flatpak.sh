@@ -10,7 +10,7 @@ sudo dpkg --add-architecture i386
 
 echo "
 ###############################################################################
-# Installing software... 
+# Installing software...
 ###############################################################################
 "
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -18,20 +18,20 @@ sudo apt update -y
 
 PKGS=(
 
-    'com.calibre_ebook.calibre'
-    'com.discordapp.Discord'
-    'nl.hjdskes.gcolor3'
-    'org.freedesktop.Platform.ffmpeg-full'
-    'org.telegram.desktop'
-    'org.kde.okular'
+    # 'com.calibre_ebook.calibre'
+    # 'com.discordapp.Discord'
+    # 'nl.hjdskes.gcolor3'
+    # 'org.freedesktop.Platform.ffmpeg-full'
+    # 'org.telegram.desktop'
+    # 'org.kde.okular'
     'com.spotify.Client'
-    'com.gigitux.gtkwhats'
+    # 'com.gigitux.gtkwhats'
 
 )
 
 for PKG in "${PKGS[@]}"; do
     echo "INSTALLING: ${PKG}"
-    flatpak install -y "$PKG" 
+    flatpak install -y "$PKG"
 done
 
 ## correct problems
@@ -41,10 +41,10 @@ sudo apt update -m
 sudo apt install -f
 sudo apt dist-upgrade
 sudo apt autoremove --purge
-sudo apt update && sudo apt upgrade -y  
+sudo apt update && sudo apt upgrade -y
 
 "
 ###############################################################################
-# Done. 
+# Done.
 ###############################################################################
 "
