@@ -19,9 +19,10 @@ PKGS=(
     # TERMINAL UTILITIES --------------------------------------------------
 
     'curl'                                  # Remote content retrieval
-    'gnome-tweaks'
-    'apt-transport-https'
+    'gnome-tweaks'                          # Gnome tweaks
+    'apt-transport-https'                   # apt-transport-https
     'htop'                                  # Process viewer
+    'bpytop'                                # Process viewer
     'neofetch'                              # Shows system info when you launch terminal
     'p7zip'                                 # 7z compression program
     'rsync'                                 # Remote file sync utility
@@ -38,11 +39,13 @@ PKGS=(
 
     'exfat-utils'           # Mount exFat drives
     'ntfs-3g'               # Open source implementation of NTFS file system
+    'parted'                # Partition editor
 
     # GENERAL UTILITIES ---------------------------------------------------
 
     'cheese'                    # Webcam utilty
     'qbittorrent'               # Torrent
+
 
     # DEVELOPMENT ---------------------------------------------------------
 
@@ -52,19 +55,23 @@ PKGS=(
     'octave'                # FOSS version of Matlab
     'git'                   # Version control system
     'gcc'                   # C/C++ compiler
+    'g++'                   # C/C++ compiler
     'glibc'                 # C libraries
-    'python3'
-    'python3-pip'
+    'python3'               # Python 3 interpreter
+    'python3-pip'           # Python 3 package manager
+    'git'                   # Version control system
 
     # MEDIA ---------------------------------------------------------------
 
     'simplescreenrecorder'  # Screen recorder
     'obs-studio'            # Advanced screen recorder
-    'audacity'
+    'audacity'              # Audio editor
     'youtube-dl'            # Comand line tool for downloading yt videos
     'nomacs'                # Simple photo viewer and editor
     'vlc'                   # Video player
-    'telegram-dekstop'
+    'telegram-dekstop'      # Desktop version of Telegram
+    'steam'                 # Steam game platform
+    'lutris'                # Game platform
 
     # GRAPHICS AND DESIGN -------------------------------------------------
 
@@ -72,8 +79,9 @@ PKGS=(
     'gimp'                  # GNU Image Manipulation Program
     'ristretto'             # Multi image viewer
     'inkscape'              # Vectorial graphics
-    'imagemagick'
-    'okular'
+    'imagemagick'           # Image manipulation
+    'okular'                # PDF viewer
+    'calibre'               # Ebook reader
 )
 
 for PKG in "${PKGS[@]}"; do
@@ -93,44 +101,43 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 sudo apt update
 sudo apt install brave-browser -y
 
-
-# echo "\nInstalling Tor...\n"
-# ## Tor
-# sudo add-apt-repository ppa:micahflee/ppa && sudo apt update
-# sudo apt install torbrowser-launcher -y
-
-# #Wine and Lutris
-# echo "\nInstalling Wine and Lutris...\n"
-# sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' -y
-# sudo add-apt-repository ppa:lutris-team/lutris -y
-# sudo apt update
-# sudo apt-get install --install-recommends winehq-staging -y
-# sudo apt-get install libgnutls30:i386 libldap-2.4-2:i386 libgpg-error0:i386 libxml2:i386 libasound2-plugins:i386 libsdl2-2.0-0:i386 libfreetype6:i386 libdbus-1-3:i386 libsqlite3-0:i386 -y
-# sudo apt-get install lutris -y
-
-# echo "\nInstalling Proton...\n"
-# #proton
-# cd ~
-# wget https://raw.githubusercontent.com/Termuellinator/ProtonUpdater/master/cproton.sh
-# sudo chmod +x cproton.sh
-# ./cproton.sh
-# cd $HOME
-
-# echo "\nInstalling legendary...\n"
-# #legendary
-# git clone https://github.com/derrod/legendary.git
-# cd legendary
-# sudo python3 setup.py install
-# cd $HOME
-
 ## VSCODE
-echo "\nInstalling VScode...\n"
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-rm -f packages.microsoft.gpg
-sudo apt update
-sudo apt install code -y
+echo "\nInstalling VSCode...\n"
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo apt-get update
+sudo apt-get install code -y
+rm microsoft.gpg
+
+## HEORIC GAME LAUNCHER
+echo "\nInstalling Heoric Game Launcher...\n"
+
+# Set fluent purple dark as icon theme on gnome
+sudo gsettings set org.gnome.desktop.interface icon-theme "Fluent-purple-dark"
+# Set Orchis-purple-dark-compact as WM theme on gnome
+sudo gsettings set org.gnome.desktop.wm.preferences theme "Orchis-purple-dark-compact"
+# Set zsh as default shell
+sudo chsh -s /usr/bin/zsh
+# Apply the confing files in the ../dots/kitty folder to the kitty config file
+sudo cp -r ../dots/kitty/ ~/.config/kitty/
+# set ../images/pop.png as the default wallpaper
+sudo cp ../images/pop.png /usr/share/backgrounds/gnome/
+# set ../images/mega_93685.png as the icon for the ~/MEGA folder
+sudo cp ../images/mega_93685.png /usr/share/icons/hicolor/scalable/apps/mega.svg
+
+# download the fonts and install them
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -O ~/.local/share/fonts/MesloLGS%20NF%20Regular.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf -O ~/.local/share/fonts/MesloLGS%20NF%20Bold.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf -O ~/.local/share/fonts/MesloLGS%20NF%20Italic.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf -O ~/.local/share/fonts/MesloLGS%20NF%20Bold%20Italic.ttf
+
+# set MesloLGS NF Regular as the default font for gnome terminal
+gsettings set org.gnome.Terminal.Legacy.FontFace "MesloLGS NF Regular"
+
+# set kitty as the default terminal
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/kitty 60
+sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty
 
 ## correct problems
 sudo dpkg --configure -a

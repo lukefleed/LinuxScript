@@ -18,14 +18,11 @@ sudo apt update -y
 
 PKGS=(
 
-    # 'com.calibre_ebook.calibre'
-    # 'com.discordapp.Discord'
-    # 'nl.hjdskes.gcolor3'
-    # 'org.freedesktop.Platform.ffmpeg-full'
-    # 'org.telegram.desktop'
-    # 'org.kde.okular'
+    'com.discordapp.Discord'
     'com.spotify.Client'
-    # 'com.gigitux.gtkwhats'
+    'com.heroicgameslauncher.hgl'
+    'net.davidotek.pupgui2'
+
 
 )
 
